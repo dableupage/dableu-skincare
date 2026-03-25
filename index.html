@@ -2,21 +2,168 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dableu Skincare</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dableu Product Catalog</title>
+
+  <!-- SEO for GitHub Pages -->
+  <meta name="description" content="Dableu Skincare - Premium Korean Style Skincare" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Poppins, sans-serif;background:#eaf4ff;color:#1b2a4a}
+
+    .topbar{display:flex;justify-content:space-between;padding:10px 20px;font-size:12px;color:#fff;background:#7db7ff}
+
+    header{padding:30px 20px;background:linear-gradient(180deg,#7ec3ff,#bfe2ff);color:#fff;position:relative}
+    header h1{font-size:48px}
+    header .script{font-family:'Playfair Display', serif;font-style:italic;font-size:42px}
+    header .brand{position:absolute;right:20px;top:30px;font-weight:600;letter-spacing:3px}
+
+    .circle-row{display:flex;gap:20px;overflow-x:auto;padding:20px}
+    .circle{min-width:120px;text-align:center}
+    .circle img{width:100px;height:100px;border-radius:50%;background:#fff;padding:10px}
+
+    .section{padding:20px}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+    .big-card img{width:100%;height:220px;object-fit:cover;border-radius:20px}
+
+    .side{background:#fff;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:20px}
+    .circle-small{width:80px;height:80px;border-radius:50%;background:#d8ecff;margin:auto}
+
+    .coming{margin-top:20px;background:#fff;border-radius:20px;padding:20px}
+    .coming-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .coming img{width:100%;border-radius:15px}
+
+    .slider{display:flex;gap:20px;overflow-x:auto;padding:20px}
+    .card{min-width:220px;background:#fff;border-radius:20px;padding:15px;text-align:center}
+    .card img{width:100%;border-radius:10px}
+    .price{color:#ff4d4d;font-weight:600}
+
+    .buy-btn{
+      display:inline-block;
+      margin-top:10px;
+      background:#25D366;
+      color:white;
+      padding:8px 15px;
+      border-radius:20px;
+      text-decoration:none;
+      font-size:13px;
+    }
+
+    .promo{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding:20px}
+    .promo-box{background:linear-gradient(135deg,#7ec3ff,#bfe2ff);color:#fff;border-radius:20px;padding:20px;text-align:center}
+
+    footer{background:#f2f2f2;padding:30px;font-size:12px;margin-top:20px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+    @media(max-width:768px){
+      .grid{grid-template-columns:1fr}
+      .promo{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
 </head>
 <body>
 
+<div class="topbar">
+  <div>dableuindonesia@gmail.com</div>
+  <div>Help Center</div>
+</div>
+
 <header>
-  <h1>DABLEU</h1>
-  <p>Product Catalog</p>
+  <h1>PRODUCT</h1>
+  <div class="script">Catalog</div>
+  <div class="brand">DABLEU</div>
 </header>
 
-<div id="circleProducts" class="circle-row"></div>
+<div class="circle-row" id="circleProducts"></div>
 
-<div id="productList" class="slider"></div>
+<section class="section">
+  <div class="grid">
+    <div class="big-card">
+      <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba7">
+    </div>
+    <div class="side">
+      <p>Skincare premium untuk hasil maksimal</p>
+      <div class="circle-small"></div>
+      <p>Formula ringan & cepat meresap</p>
+      <div class="circle-small"></div>
+    </div>
+  </div>
 
-<script src="assets/js/script.js"></script>
+  <div class="coming">
+    <h3>COMING SOON PRODUCT</h3>
+    <div class="coming-grid">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
+      <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc">
+    </div>
+  </div>
+</section>
+
+<div class="slider" id="productList"></div>
+
+<div class="promo">
+  <div class="promo-box">START FROM<br><h2>99K</h2></div>
+  <div class="promo-box">DISC UP TO<br><h2>12%</h2></div>
+  <div class="promo-box">START FROM<br><h2>300K</h2></div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div><b>Company</b><br>About Us<br>Careers</div>
+    <div><b>Discover</b><br>Best Seller<br>New Arrival</div>
+    <div><b>Help</b><br>Contact<br>FAQ</div>
+    <div><b>Social</b><br>Instagram<br>TikTok</div>
+  </div>
+</footer>
+
+<script>
+// DATA PRODUK (EDIT DI SINI SAJA)
+const products = [
+  {
+    name: "Hair Tonic",
+    image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd",
+    price: "Rp 120.000"
+  },
+  {
+    name: "Serum Glow",
+    image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc",
+    price: "Rp 150.000"
+  },
+  {
+    name: "Bright Cream",
+    image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
+    price: "Rp 130.000"
+  }
+];
+
+// RENDER CIRCLE
+const circle = document.getElementById("circleProducts");
+products.forEach(p => {
+  circle.innerHTML += `
+    <div class="circle">
+      <img src="${p.image}">
+      <p>${p.name}</p>
+    </div>
+  `;
+});
+
+// RENDER SLIDER
+const list = document.getElementById("productList");
+products.forEach(p => {
+  list.innerHTML += `
+    <div class="card">
+      <img src="${p.image}">
+      <h4>${p.name}</h4>
+      <p class="price">${p.price}</p>
+      <a class="buy-btn" href="https://wa.me/6281234567890" target="_blank">Beli</a>
+    </div>
+  `;
+});
+</script>
+
 </body>
 </html>
+
